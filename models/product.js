@@ -8,10 +8,12 @@ var mongoose = restful.mongoose;
 
 //Schema
 var productSchema = new mongoose.Schema({
-    name: String,
-    sku: String,
-    price: Number
+    email: String,
+    password: String,
+    phone : Number
 });
+
+
 
 //return model
 module.exports = restful.model('Products', productSchema);

@@ -6,15 +6,8 @@ var express = require("express");
 var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 
-/*//MOngoDB
-var url = "mongodb://cobMDB:cob@ds054289.mlab.com:54289/cob";
-mongoose.connect('url', function(err){
-        if (err){
-            console.log("Unable to connect to the server", err);
-        }else {
-            console.log("Connection Secured");
-        }
-    } );*/
+var port =process.env.PORT || 3002;
+
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://cobMDB:cob@ds054289.mlab.com:54289/cob');
 
@@ -31,5 +24,6 @@ app.use(bodyParser.json());
 app.use('/api', require('./routes/api'));
 
 //start server
-app.listen(3002);
-console.log("Api is working on port 3002");
+app.listen(port, function () {
+    console.log("Api is working on port 3002");
+});
